@@ -3,19 +3,19 @@
 This program features a parser that interacts with BMP image files based on commands read from an input file. The core functionalities include editing, saving, quitting, and inserting images over an existing BMP file. This document provides an overview of the program's architecture, including its main functions and the workflow.
 
 ## Features
-Edit: Load and initialize a BMP image into a structure for manipulation.
-Save: Write the modified image data to a new BMP file.
-Quit: Release all dynamically allocated memory associated with the image.
-Insert: Overlay another image at specified coordinates on the currently loaded image.
+* **Edit**: Load and initialize a BMP image into a structure for manipulation.
+* **Save**: Write the modified image data to a new BMP file.
+* **Quit**: Release all dynamically allocated memory associated with the image.
+* **Insert**: Overlay another image at specified coordinates on the currently loaded image.
 
 ## Implementation Details
 
 ### Edit Function
-Opens the BMP image file using fopen.
-Initializes a Bitmap structure, imageinfo, containing the file header, information header, and pixel matrix.
-Reads the file and information headers.
-Utilizes fseek to skip header bytes and dynamically allocates memory for reading the pixel matrix, taking into account the padding which is skipped after each row.
-The result is stored in the Bitmap variable image for subsequent operations.
+* Opens the BMP image file using fopen.
+*  Initializes a Bitmap structure, imageinfo, containing the file header, information header, and pixel matrix.
+*  Reads the file and information headers.
+*  Utilizes fseek to skip header bytes and dynamically allocates memory for reading the pixel matrix, taking into account the padding which is skipped after each row.
+*  The result is stored in the Bitmap variable image for subsequent operations.
 ### Save Function
 Opens the output file in write mode.
 Employs fwrite to write the image data, including pixel data and padding, to the new file.
